@@ -1,62 +1,85 @@
+/* PAGE */
 body {
-  background-color: #0b132b;
+  background-color: #071633;
   color: white;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
+/* APP CONTAINER */
 .app {
   padding: 20px;
+  padding-bottom: 90px;
 }
 
-.search {
-  width: 100%;
-  padding: 10px;
-  margin: 15px 0;
+/* TITLE */
+.title {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
+/* SEARCH BAR */
 .search {
   width: 100%;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   margin-top: 15px;
+  background: #162445;
+  color: white;
+  outline: none;
 }
 
+/* SONG LIST */
 .song-list {
   margin-top: 20px;
 }
 
+/* SONG ITEM */
 .song {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-top: 10px;
   border-radius: 12px;
-  margin-bottom: 12px;
+  background: #162445;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
+/* SONG HOVER */
+.song:hover {
+  background: #1f3260;
+}
+
+/* ACTIVE SONG */
+.song.active {
+  background: rgba(29, 185, 84, 0.25);
+  border: 1px solid #1db954;
+}
+
+/* ALBUM ART */
+.album-art {
+  width: 45px;
+  height: 45px;
+  background: #888;
+  border-radius: 8px;
+}
+
+/* SONG TEXT */
 .song-title {
   font-weight: bold;
   margin: 0;
 }
 
 .song-artist {
-  margin: 0;
   font-size: 14px;
   opacity: 0.7;
+  margin: 0;
 }
 
-.song {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.album-art {
-  width: 45px;
-  height: 45px;
-  background: #555;
-  border-radius: 10px;
-}
-
+/* MINI PLAYER */
 .mini-player {
   position: fixed;
   bottom: 0;
@@ -73,19 +96,22 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* MINI LEFT SIDE */
 .mini-left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+/* MINI ALBUM */
 .mini-album {
   width: 40px;
   height: 40px;
-  background: #555;
+  background: #888;
   border-radius: 8px;
 }
 
+/* MINI TEXT */
 .mini-title {
   margin: 0;
   font-weight: bold;
@@ -98,22 +124,19 @@ body {
   opacity: 0.7;
 }
 
+/* PLAY BUTTON */
 .play-btn {
   background: #1db954;
   border: none;
   color: black;
   font-size: 18px;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.app {
-  padding-bottom: 90px;
-}
-
-.song.active {
-  background: rgba(29, 185, 84, 0.2);
-  border: 1px solid #1db954;
+.play-btn:hover {
+  transform: scale(1.1);
 }

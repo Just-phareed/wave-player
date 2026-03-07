@@ -1,13 +1,28 @@
 const SongCard = ({ song, onPlay }) => {
   return (
     <div className="song-card">
-      <img src={song.album.cover_medium} alt={song.title} />
-      <h3>{song.title}</h3>
-      <p>{song.artist.name}</p>
 
-      <button onClick={() => onPlay(song.preview)}>
-        Play
+      {/* Album Cover */}
+      <img
+        className="album-art"
+        src={song.album.cover_medium}
+        alt={song.title}
+      />
+
+      {/* Song Info */}
+      <div className="song-info">
+        <p className="song-title">{song.title}</p>
+        <p className="song-artist">{song.artist.name}</p>
+      </div>
+
+      {/* Play Button */}
+      <button
+        className="play-btn"
+        onClick={() => onPlay(song.preview)}
+      >
+        ▶
       </button>
+
     </div>
   );
 };

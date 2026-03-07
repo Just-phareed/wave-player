@@ -15,7 +15,7 @@ WavePlayer is a simple music streaming web app built with React.
 
 - React
 - CSS
-- JavaScript
+- Vite
 
 ## How to Run
 

@@ -5,22 +5,25 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const songs = [
-  {
-    title: "Blinding Lights",
-    artist: "The Weeknd",
-    src: "/blindinglights.mp3",
-  },
-  {
-    title: "IF",
-    artist: "Davido",
-    src: "/if.mp3",
-  },
-  {
-    title: "Levitating",
-    artist: "Dua Lipa",
-    src: "/levitating.mp3",
-  },
-];
+    {
+      title: "Blinding Lights",
+      artist: "The Weeknd",
+      src: "/song.mp3",
+      cover: "/images/blindinglights.jpg"
+    },
+    {
+      title: "IF",
+      artist: "Davido",
+      src: "/if.mp3",
+      cover: "/images/if.jpg"
+    },
+    {
+      title: "Levitating",
+      artist: "Dua Lipa",
+      src: "/levitating.mp3",
+      cover: "/images/levitating.jpg"
+    }
+  ];
 
   const [currentSong, setCurrentSong] = useState(songs[0]);
 
@@ -35,6 +38,7 @@ function App() {
 
   return (
     <div className="app">
+
       {/* TITLE */}
       <h1 className="title">WavePlayer</h1>
 
@@ -48,19 +52,26 @@ function App() {
       {/* SONG LIST */}
       <div className="song-list">
         {songs.map((song, index) => (
-  <div
-    className={`song ${
-      song.title === currentSong.title ? "active" : ""
-    }`}
-    key={index}
-    onClick={() => {
-      setCurrentSong(song);
-      audioRef.current.src = song.src;
-      audioRef.current.play();
-      setIsPlaying(true);
-    }}
-  >
-            <div className="album-art"></div>
+          <div
+            className={`song ${
+              song.title === currentSong.title ? "active" : ""
+            }`}
+            key={index}
+            onClick={() => {
+              setCurrentSong(song);
+              audioRef.current.src = song.src;
+              audioRef.current.play();
+              setIsPlaying(true);
+            }}
+          >
+            <div
+              className="album-art"
+              style={{
+                backgroundImage: `url(${song.cover})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}
+            ></div>
 
             <div className="song-info">
               <p className="song-title">{song.title}</p>
@@ -76,7 +87,14 @@ function App() {
       {/* MINI PLAYER */}
       <div className="mini-player">
         <div className="mini-left">
-          <div className="mini-album"></div>
+          <div
+            className="mini-album"
+            style={{
+              backgroundImage: `url(${currentSong.cover})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
+          ></div>
 
           <div className="mini-info">
             <p className="mini-title">{currentSong.title}</p>
@@ -88,6 +106,7 @@ function App() {
           {isPlaying ? "⏸" : "▶"}
         </button>
       </div>
+
     </div>
   );
 }
